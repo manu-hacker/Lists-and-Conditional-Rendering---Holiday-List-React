@@ -6,21 +6,24 @@ class App extends Component {
     super(props);
     this.state = {
       text: "Hello, I've learnt to use the full-stack evaluation tool. This makes me so happy",
-      click: 0,
+
+      showPara: false,
     };
   }
+
+  onClick = () => {
+    // this.setState((this.state.showPara = true));
+    this.setState({ showPara: true });
+  };
 
   render() {
     return (
       <div id="main">
         {/* Do not remove this main div!! */}
-        <button
-          id="click"
-          onClick={() => this.setState({ count: this.state.count + 1 })}
-        >
+        <button id="click" onClick={this.onClick}>
           Button
         </button>
-        <h6 id="para">{this.state.text}</h6>
+        {this.state.showPara && <p id="para">{this.state.text}</p>}
       </div>
     );
   }
